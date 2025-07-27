@@ -26,4 +26,7 @@ $invoice = new ServiceInvoiceBuilder()
     ->withCompany(company: 'Test', cnpj: '12345')
     ->build();
 
+$invoice2 = clone $invoice;
+$invoice3 = clone $invoice;
+
 echo $invoice->getTotalValue();

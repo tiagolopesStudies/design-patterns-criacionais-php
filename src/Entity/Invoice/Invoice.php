@@ -33,4 +33,9 @@ class Invoice
             callback: fn ($total, Budget $item) => $total + $item->value()
         );
     }
+
+    public function __clone(): void
+    {
+        $this->issueDate = new DateTimeImmutable;
+    }
 }
