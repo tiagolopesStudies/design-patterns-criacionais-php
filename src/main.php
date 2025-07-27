@@ -6,6 +6,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Tiagolopes\DesignPatterns\Entity\Budget\{Budget};
 use Tiagolopes\DesignPatterns\Entity\Order\{Order};
+use Tiagolopes\DesignPatterns\Database\Connection;
 use Tiagolopes\DesignPatterns\Entity\Invoice\ServiceInvoiceBuilder;
 use Tiagolopes\DesignPatterns\Log\FileLogManager;
 
@@ -29,4 +30,10 @@ $invoice = new ServiceInvoiceBuilder()
 $invoice2 = clone $invoice;
 $invoice3 = clone $invoice;
 
-echo $invoice->getTotalValue();
+echo $invoice->getTotalValue() . PHP_EOL;
+
+$db1 = Connection::getInstance();
+$db2 = Connection::getInstance();
+$db3 = Connection::getInstance();
+
+var_dump($db1, $db2, $db3);
